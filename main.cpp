@@ -9,8 +9,11 @@ extern string word, line;
 
 int main()
 {
+  string nameFile;
+  cout << "Input name file: ";
+  cin >> nameFile;
   inputData();
-  RemoveWord (&str, string &word);
+  RemoveWord (&str, &word);
   cout<< countWords(&line)<< "Result: "<< line << endl;
     
   return 0;
