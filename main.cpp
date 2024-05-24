@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "sentence.h"
+#include <string>
 
 using namespace std;
 
@@ -12,9 +13,11 @@ int main()
   string nameFile;
   cout << "Input name file: ";
   cin >> nameFile;
-  inputData();
-  RemoveWord (&str, &word);
-  cout<< countWords(&line)<< "Result: "<< line << endl;
-    
+  cout << "Input word: ";
+  cin >> word;
+  RemoveWord(line, word);
+  countWords(line);
+  cout<< countWords(line)<< "Result: "<< line << endl;
+   // int removedCount = processFile(nameFile, word);
   return 0;
 }

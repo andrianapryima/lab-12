@@ -4,45 +4,35 @@
 #include <string>
 using namespace std;
 
-string str;
-
-void inputData()
-
-{
-  cout << "Enter a sentence:"<< endl;
-  getline(cin, str);
-}
-
-
-
-void RemoveWord (string &str, const string &word)
+string word,line;
+void RemoveWord (string &line, string &word)
 {
   // Шукаємо перше входження слова у рядок
-  size_t pos = str.find(word);
+  size_t pos = line.find(word);
   // Поки знайдено входження слова, видаляємо його
   while (pos != string::npos) {
       // Видаляємо слово з рядка
-      str.erase(pos, word.length());
+      line.erase(pos, word.length());
       // Продовжуємо пошук наступного входження слова
-      pos = str.find(word);
+      pos = line.find(word);
   }
   
 }
 
-int countWords(string *line)
+int countWords(string &line)
 {
   // Створюємо копію оригінального рядка, оскільки в процесі видалення ми модифікуємо вихідний рядок
-     // string str = originalStr;
+     //string str;
       int count = 0;
       // Шукаємо всі входження слова та підраховуємо їх
-      size_t pos = str.find(word);
+      size_t pos = line.find(word);
       while (pos != string::npos) 
       {
           count++;
           // Видаляємо слово з рядка
-          str.erase(pos, word.length());
+          line.erase(pos, word.length());
           // Продовжуємо пошук наступного входження слова
-          pos = str.find(word);
+          pos = line.find(word);
       }
       return count;
   }
