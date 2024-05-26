@@ -3,6 +3,7 @@
 #include <iostream>
 #include "sentence.h"
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -15,9 +16,31 @@ int main()
   cin >> nameFile;
   cout << "Input word: ";
   cin >> word;
+  ifstream inputFile(nameFile);
+  ofstream outputFile("result.txt");
+  //Перевірка, чи файли вдалося відкрити
+  if (!inputFile) {
+    cout << "Unable to open input file!" << endl;
+    return -1;
+  }
+
+  if (!outputFile) {
+    cout << "Unable to open output file!" << endl;
+    return -1;
+  }
+  string result = "";
+  //string file_txt;
+  // помістити з файла test.txt в змінну file_txt
+  getline(inputFile, line);
+
+  // cout << line << endl;
+  cout << "Result: "<< countWords(line) << endl;
   RemoveWord(line, word);
-  countWords(line);
-  cout<< countWords(line)<< "Result: "<< line << endl;
-   // int removedCount = processFile(nameFile, word);
-  return 0;
+  //записати вміст змінної result в файл result.txt
+  outputFile << line;
+  cout << line << endl;
+  //закрити файли
+  inputFile.close();
+  outputFile.close();
+    return 0;
 }

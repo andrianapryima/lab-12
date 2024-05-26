@@ -6,5 +6,5 @@ using namespace std;
 extern string word, line;
 
 void RemoveWord(string &line, string &word);
-int countWords (const string &line);
+int countWords(string &line);
 
